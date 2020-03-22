@@ -13,11 +13,11 @@ namespace Customers.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PersonControler : ControllerBase
+    public class PersonController : ControllerBase
     {
         private readonly IPersonService person;
 
-        public PersonControler(IPersonService person)
+        public PersonController(IPersonService person)
         {
             this.person = person; 
         }
@@ -34,5 +34,6 @@ namespace Customers.Controllers
         {
             return person.Get();
         }
+        //com
     }
 }
