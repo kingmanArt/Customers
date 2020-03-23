@@ -19,33 +19,33 @@ namespace Customers.BLL.Services
             this.db = db;
         }
 
-        //public async Task<Country> Add(Country country)
-        //{
-        //    var res = await db.Country.AddAsync(country);
+        public async Task<Person> Add(Person person)
+        {
+            var res = await db.Person.AddAsync(person);
 
-        //    await db.SaveChangesAsync();
-        //    return res.Entity;
-        //}
+            await db.SaveChangesAsync();
+            return res.Entity;
+        }
 
-        //public async Task<Country> Update(Country country)
-        //{
-        //    var res = db.Country.Update(country);
+        public async Task<Person> Update(Person person)
+        {
+            var res = db.Person.Update(person);
 
-        //    await db.SaveChangesAsync();
+            await db.SaveChangesAsync();
 
-        //    return res.Entity;
-        //}
+            return res.Entity;
+        }
 
-        //public async Task<bool> Delete(string code)
-        //{
-        //    var model = await db.Country.FirstOrDefaultAsync(x => x.Code == code);
+        public async Task<bool> Delete(int id)
+        {
+            var model = await db.Person.FirstOrDefaultAsync(x => x.Id == id);
 
-        //    db.Remove(model);
+            db.Remove(model);
 
-        //    await db.SaveChangesAsync();
+            await db.SaveChangesAsync();
 
-        //    return true;
-        //}
+            return true;
+        }
 
         public async Task<Person> Get(int id)
         {

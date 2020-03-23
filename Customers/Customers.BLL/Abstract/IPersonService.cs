@@ -10,8 +10,8 @@ namespace Customers.BLL.Abstract
     {
         Task<Person> Get(int code);
         IEnumerable<Person> Get();
-        //Task<Country> Add(Country country);
-        //Task<Country> Update(Country country);
-        //Task<bool> Delete(string code);
+        Task<Person> Add(Person person);
+        Task<Person> Update(Person person);
+        Task<bool> Delete(int id);
     }
 }

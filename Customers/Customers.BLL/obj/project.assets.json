@@ -889,11 +889,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ART\\Documents\\Customers\\Customers\\Customers.BLL\\Customers.BLL.csproj",
+      "projectUniqueName": "C:\\Users\\ART\\Documents\\GitHub\\Customers\\Customers\\Customers.BLL\\Customers.BLL.csproj",
       "projectName": "Customers.BLL",
-      "projectPath": "C:\\Users\\ART\\Documents\\Customers\\Customers\\Customers.BLL\\Customers.BLL.csproj",
+      "projectPath": "C:\\Users\\ART\\Documents\\GitHub\\Customers\\Customers\\Customers.BLL\\Customers.BLL.csproj",
       "packagesPath": "C:\\Users\\ART\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ART\\Documents\\Customers\\Customers\\Customers.BLL\\obj\\",
+      "outputPath": "C:\\Users\\ART\\Documents\\GitHub\\Customers\\Customers\\Customers.BLL\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ART\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -909,8 +909,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\ART\\Documents\\Customers\\Customers\\Customers.DAL\\Customers.DAL.csproj": {
-              "projectPath": "C:\\Users\\ART\\Documents\\Customers\\Customers\\Customers.DAL\\Customers.DAL.csproj"
+            "C:\\Users\\ART\\Documents\\GitHub\\Customers\\Customers\\Customers.DAL\\Customers.DAL.csproj": {
+              "projectPath": "C:\\Users\\ART\\Documents\\GitHub\\Customers\\Customers\\Customers.DAL\\Customers.DAL.csproj"
             }
           }
         }

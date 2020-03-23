@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ART\\Documents\\Customers\\Customers\\Customers.DAL\\Customers.DAL.csproj": {}
+    "C:\\Users\\ART\\Documents\\GitHub\\Customers\\Customers\\Customers.DAL\\Customers.DAL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ART\\Documents\\Customers\\Customers\\Customers.DAL\\Customers.DAL.csproj": {
+    "C:\\Users\\ART\\Documents\\GitHub\\Customers\\Customers\\Customers.DAL\\Customers.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ART\\Documents\\Customers\\Customers\\Customers.DAL\\Customers.DAL.csproj",
+        "projectUniqueName": "C:\\Users\\ART\\Documents\\GitHub\\Customers\\Customers\\Customers.DAL\\Customers.DAL.csproj",
         "projectName": "Customers.DAL",
-        "projectPath": "C:\\Users\\ART\\Documents\\Customers\\Customers\\Customers.DAL\\Customers.DAL.csproj",
+        "projectPath": "C:\\Users\\ART\\Documents\\GitHub\\Customers\\Customers\\Customers.DAL\\Customers.DAL.csproj",
         "packagesPath": "C:\\Users\\ART\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ART\\Documents\\Customers\\Customers\\Customers.DAL\\obj\\",
+        "outputPath": "C:\\Users\\ART\\Documents\\GitHub\\Customers\\Customers\\Customers.DAL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ART\\AppData\\Roaming\\NuGet\\NuGet.Config",

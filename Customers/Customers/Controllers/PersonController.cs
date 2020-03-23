@@ -15,25 +15,43 @@ namespace Customers.Controllers
     [ApiController]
     public class PersonController : ControllerBase
     {
-        private readonly IPersonService person;
+        private readonly IPersonService personService;
 
-        public PersonController(IPersonService person)
+        public PersonController(IPersonService personService)
         {
-            this.person = person; 
+            this.personService = personService; 
         }
         
         [HttpGet]
         [Route("{id}")]
         public async Task<Person> Get(int id)
         {
-            return await person.Get(id);
+            return await personService.Get(id);
         }
 
         [HttpGet]
         public IEnumerable<Person> Get()
         {
-            return person.Get();
+            return personService.Get();
         }
-        //com
+
+        [HttpPost]
+        public async Task<Person> Add([FromBody] Person person)
+        {
+            return await personService.Add(person);
+        }
+
+        [HttpPut]
+        public async Task<Person> Update([FromBody] Person person)
+        {
+            return await personService.Update(person);
+        }
+
+        [HttpDelete]
+        [Route("{id}")]
+        public async Task<bool> Delete(int id)
+        {
+            return await personService.Delete(id);
+        }
     }
 }

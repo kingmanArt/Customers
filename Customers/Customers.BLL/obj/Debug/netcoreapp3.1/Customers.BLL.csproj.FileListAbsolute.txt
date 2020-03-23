@@ -20,3 +20,14 @@ C:\Users\ART\Documents\Customers\Customers\Customers.BLL\obj\Debug\netcoreapp3.1
 C:\Users\ART\Documents\Customers\Customers\Customers.BLL\obj\Debug\netcoreapp3.1\Customers.BLL.csproj.CopyComplete
 C:\Users\ART\Documents\Customers\Customers\Customers.BLL\obj\Debug\netcoreapp3.1\Customers.BLL.dll
 C:\Users\ART\Documents\Customers\Customers\Customers.BLL\obj\Debug\netcoreapp3.1\Customers.BLL.pdb
+C:\Users\ART\Documents\GitHub\Customers\Customers\Customers.BLL\bin\Debug\netcoreapp3.1\Customers.BLL.deps.json
+C:\Users\ART\Documents\GitHub\Customers\Customers\Customers.BLL\bin\Debug\netcoreapp3.1\Customers.BLL.dll
+C:\Users\ART\Documents\GitHub\Customers\Customers\Customers.BLL\bin\Debug\netcoreapp3.1\Customers.BLL.pdb
+C:\Users\ART\Documents\GitHub\Customers\Customers\Customers.BLL\bin\Debug\netcoreapp3.1\Customers.DAL.dll
+C:\Users\ART\Documents\GitHub\Customers\Customers\Customers.BLL\bin\Debug\netcoreapp3.1\Customers.DAL.pdb
+C:\Users\ART\Documents\GitHub\Customers\Customers\Customers.BLL\obj\Debug\netcoreapp3.1\Customers.BLL.csprojAssemblyReference.cache
+C:\Users\ART\Documents\GitHub\Customers\Customers\Customers.BLL\obj\Debug\netcoreapp3.1\Customers.BLL.AssemblyInfoInputs.cache
+C:\Users\ART\Documents\GitHub\Customers\Customers\Customers.BLL\obj\Debug\netcoreapp3.1\Customers.BLL.AssemblyInfo.cs
+C:\Users\ART\Documents\GitHub\Customers\Customers\Customers.BLL\obj\Debug\netcoreapp3.1\Customers.BLL.csproj.CopyComplete
+C:\Users\ART\Documents\GitHub\Customers\Customers\Customers.BLL\obj\Debug\netcoreapp3.1\Customers.BLL.dll
+C:\Users\ART\Documents\GitHub\Customers\Customers\Customers.BLL\obj\Debug\netcoreapp3.1\Customers.BLL.pdb
