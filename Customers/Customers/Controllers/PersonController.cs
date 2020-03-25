@@ -6,8 +6,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Customers.DAL.Entities;
-using Customers.BLL.Abstract;
-
 
 namespace Customers.Controllers
 {
@@ -15,43 +13,97 @@ namespace Customers.Controllers
     [ApiController]
     public class PersonController : ControllerBase
     {
-        private readonly IPersonService personService;
+        private readonly test_dbContext _context;
 
-        public PersonController(IPersonService personService)
+        public PersonController(test_dbContext context)
         {
-            this.personService = personService; 
+            _context = context;
         }
-        
+
+        // GET: api/Person
         [HttpGet]
-        [Route("{id}")]
-        public async Task<Person> Get(int id)
+        public async Task<ActionResult<IEnumerable<Person>>> GetPerson()
         {
-            return await personService.Get(id);
+            return await _context.Person.ToListAsync();
         }
 
-        [HttpGet]
-        public IEnumerable<Person> Get()
+        // GET: api/Person/5
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Person>> GetPerson(int id)
         {
-            return personService.Get();
+            var person = await _context.Person.FindAsync(id);
+
+            if (person == null)
+            {
+                return NotFound();
+            }
+
+            return person;
         }
 
+        // PUT: api/Person/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
+        // more details see https://aka.ms/RazorPagesCRUD.
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutPerson(int id, Person person)
+        {
+            if (id != person.Id)
+            {
+                return BadRequest();
+            }
+
+            _context.Entry(person).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!PersonExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return NoContent();
+        }
+
+        // POST: api/Person
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
+        // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost]
-        public async Task<Person> Add([FromBody] Person person)
+        public async Task<ActionResult<Person>> PostPerson(Person person)
         {
-            return await personService.Add(person);
+            _context.Person.Add(person);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction("GetPerson", new { id = person.Id }, person);
         }
 
-        [HttpPut]
-        public async Task<Person> Update([FromBody] Person person)
+        // DELETE: api/Person/5
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<Person>> DeletePerson(int id)
         {
-            return await personService.Update(person);
+            var person = await _context.Person.FindAsync(id);
+            if (person == null)
+            {
+                return NotFound();
+            }
+
+            _context.Person.Remove(person);
+            await _context.SaveChangesAsync();
+
+            return person;
         }
 
-        [HttpDelete]
-        [Route("{id}")]
-        public async Task<bool> Delete(int id)
+        private bool PersonExists(int id)
         {
-            return await personService.Delete(id);
+            return _context.Person.Any(e => e.Id == id);
         }
     }
 }

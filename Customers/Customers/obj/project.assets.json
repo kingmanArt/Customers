@@ -8744,19 +8744,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ART\\.nuget\\packages\\": {}
+    "C:\\Users\\waywa\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ART\\Documents\\GitHub\\Customers\\Customers\\Customers\\Customers.csproj",
+      "projectUniqueName": "D:\\Customers\\Customers\\Customers\\Customers.csproj",
       "projectName": "Customers",
-      "projectPath": "C:\\Users\\ART\\Documents\\GitHub\\Customers\\Customers\\Customers\\Customers.csproj",
-      "packagesPath": "C:\\Users\\ART\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ART\\Documents\\GitHub\\Customers\\Customers\\Customers\\obj\\",
+      "projectPath": "D:\\Customers\\Customers\\Customers\\Customers.csproj",
+      "packagesPath": "C:\\Users\\waywa\\.nuget\\packages\\",
+      "outputPath": "D:\\Customers\\Customers\\Customers\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\ART\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\waywa\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -8769,11 +8769,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\ART\\Documents\\GitHub\\Customers\\Customers\\Customers.BLL\\Customers.BLL.csproj": {
-              "projectPath": "C:\\Users\\ART\\Documents\\GitHub\\Customers\\Customers\\Customers.BLL\\Customers.BLL.csproj"
+            "D:\\Customers\\Customers\\Customers.BLL\\Customers.BLL.csproj": {
+              "projectPath": "D:\\Customers\\Customers\\Customers.BLL\\Customers.BLL.csproj"
             },
-            "C:\\Users\\ART\\Documents\\GitHub\\Customers\\Customers\\Customers.DAL\\Customers.DAL.csproj": {
-              "projectPath": "C:\\Users\\ART\\Documents\\GitHub\\Customers\\Customers\\Customers.DAL\\Customers.DAL.csproj"
+            "D:\\Customers\\Customers\\Customers.DAL\\Customers.DAL.csproj": {
+              "projectPath": "D:\\Customers\\Customers\\Customers.DAL\\Customers.DAL.csproj"
             }
           }
         }
@@ -8846,7 +8846,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.200\\RuntimeIdentifierGraph.json"
       }
     }
   }
