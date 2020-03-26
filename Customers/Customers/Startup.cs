@@ -33,6 +33,9 @@ namespace Customers
             services.AddControllers();
             services.AddDbContext<test_dbContext>(ServiceLifetime.Scoped);
             services.AddScoped(typeof(IPersonService), typeof(PersonService));
+            services.AddControllers().AddNewtonsoftJson(options =>
+    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+            services.AddControllers(options => options.MaxIAsyncEnumerableBufferLimit = 131072);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

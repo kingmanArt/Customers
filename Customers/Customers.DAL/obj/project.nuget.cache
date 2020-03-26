@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "2fHe1m5yFg/tB2pkjnYWYK8J1MOwkKPOU3c6IpdflKHdYkX2Aaq/zB+65vP6pTLk0+lllMKhqw3z5CKU/I+TSw==",
+  "dgSpecHash": "2tL6D+hT5LUB2h2ruZyYDlrbhmg4xA63qGu1kYtNOIndF+kXVXlGht4AT28Jnr7tYaUhr7yyDKKkPaiyLUcfUQ==",
   "success": true,
   "projectFilePath": "D:\\Customers\\Customers\\Customers.DAL\\Customers.DAL.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\waywa\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\3.1.3\\microsoft.aspnetcore.jsonpatch.3.1.3.nupkg.sha512",
+    "C:\\Users\\waywa\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\3.1.3\\microsoft.aspnetcore.mvc.newtonsoftjson.3.1.3.nupkg.sha512",
     "C:\\Users\\waywa\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.0\\microsoft.bcl.asyncinterfaces.1.1.0.nupkg.sha512",
     "C:\\Users\\waywa\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",
     "C:\\Users\\waywa\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
@@ -26,6 +28,7 @@
     "C:\\Users\\waywa\\.nuget\\packages\\microsoft.extensions.primitives\\3.1.2\\microsoft.extensions.primitives.3.1.2.nupkg.sha512",
     "C:\\Users\\waywa\\.nuget\\packages\\mysqlconnector\\0.61.0\\mysqlconnector.0.61.0.nupkg.sha512",
     "C:\\Users\\waywa\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\waywa\\.nuget\\packages\\newtonsoft.json.bson\\1.0.2\\newtonsoft.json.bson.1.0.2.nupkg.sha512",
     "C:\\Users\\waywa\\.nuget\\packages\\pomelo.entityframeworkcore.mysql\\3.1.1\\pomelo.entityframeworkcore.mysql.3.1.1.nupkg.sha512",
     "C:\\Users\\waywa\\.nuget\\packages\\pomelo.jsonobject\\2.2.1\\pomelo.jsonobject.2.2.1.nupkg.sha512",
     "C:\\Users\\waywa\\.nuget\\packages\\system.collections.immutable\\1.7.0\\system.collections.immutable.1.7.0.nupkg.sha512",

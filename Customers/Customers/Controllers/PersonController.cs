@@ -22,16 +22,28 @@ namespace Customers.Controllers
 
         // GET: api/Person
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Person>>> GetPerson()
-        {
-            return await _context.Person.ToListAsync();
-        }
+        //public async Task<ActionResult<IEnumerable<Person>>> GetPerson()
+        //{
 
+        //    return await _context.Person
+        //                               .Include(per => per.PersonContact)
+        //                               .To();
+           
+        //}
+        public IEnumerable<Person> GetPerson()
+        {
+            return _context.Person.Include(x => x.Greeting).AsEnumerable();
+        }
         // GET: api/Person/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Person>> GetPerson(int id)
         {
-            var person = await _context.Person.FindAsync(id);
+            var person = _context.Person
+                                        .Include(per => per.Greeting)
+                                        .Include(per => per.PersonContact)
+                                        .Include(per => per.CountryCodeNavigation)
+                                        .Where(per => per.Id == id)
+                                        .FirstOrDefault();
 
             if (person == null)
             {
