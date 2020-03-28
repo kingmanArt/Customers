@@ -32,7 +32,7 @@ namespace Customers.Controllers
         //}
         public IEnumerable<Person> GetPerson()
         {
-            return _context.Person.Include(x => x.Greeting).AsEnumerable();
+            return _context.Person/*.Include(x => x.PersonContact)*/.AsEnumerable();
         }
         // GET: api/Person/5
         [HttpGet("{id}")]
