@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Customers.DAL.Entities;
+using System.Web.Http.Description;
 
 namespace Customers.Controllers
 {
@@ -30,28 +31,78 @@ namespace Customers.Controllers
         //                               .To();
            
         //}
-        public IEnumerable<Person> GetPerson()
+        public IEnumerable<PersonsInfo> GetPerson()
         {
-            return _context.Person/*.Include(x => x.PersonContact)*/.AsEnumerable();
+            return _context.Person.Include(b => b.Greeting)
+                                  .Include(b => b.PersonContact)
+                                  .Include(b => b.CountryCodeNavigation)
+                                    .Select(b =>
+       new PersonsInfo()
+       {
+           Id = b.Id,
+           Fname = b.Fname,
+           Lname = b.Lname,
+           Cpny = b.Cpny,
+           Street = b.Street,
+           Zip = b.Zip,
+           City = b.City,
+           DateOfBirth = b.DateOfBirth,
+           FirstContact = b.FirstContact,
+           Title = b.Title,
+
+           GrTxt1 = b.Greeting.Txt1,
+           GrTxt2 = b.Greeting.Txt2,
+           GrTxt3 = b.Greeting.Txt3,
+           GrTxt4 = b.Greeting.Txt4,
+
+           ConTxt1 = b.CountryCodeNavigation.Txt1,
+           ConTxt2 = b.CountryCodeNavigation.Txt2,
+           ConTxt3 = b.CountryCodeNavigation.Txt3,
+           ConTxt4 = b.CountryCodeNavigation.Txt4,
+
+           
+
+
+       }).AsEnumerable();
+
+            //_context.Person/*.Include(x => x.PersonContact)*/.AsEnumerable();
         }
-        // GET: api/Person/5
-        [HttpGet("{id}")]
+       // GET: api/Person/5
+       [HttpGet("{id}")]
+        [ResponseType(typeof(PersonContact))]
         public async Task<ActionResult<Person>> GetPerson(int id)
         {
-            var person = _context.Person
-                                        .Include(per => per.Greeting)
-                                        .Include(per => per.PersonContact)
-                                        .Include(per => per.CountryCodeNavigation)
-                                        .Where(per => per.Id == id)
-                                        .FirstOrDefault();
+            //var person = _context.Person
+            //                            .Include(per => per.Greeting)
+            //                            .Include(per => per.PersonContact)
+            //                            .Include(per => per.CountryCodeNavigation)
+            //                            .Where(per => per.Id == id)
+            //                            .FirstOrDefault();
 
+            //if (person == null)
+            //{
+            //    return NotFound();
+            //}
+
+            //return person;
+
+            var person = await _context.Person.Include(b => b.Greeting).Select(b =>
+        new PersonsInfo()
+        {
+            PersonId = b.Id,
+            Fname = b.Fname,
+            
+           
+            
+        }).SingleOrDefaultAsync(b => b.PersonId == id);
             if (person == null)
             {
                 return NotFound();
             }
 
-            return person;
-        }
+            return Ok(person);
+        
+    }
 
         // PUT: api/Person/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for

@@ -11,6 +11,7 @@ namespace Customers.DAL.Entities
         public string Txt { get; set; }
         public string Notes { get; set; }
         public sbyte Active { get; set; }
+        public string Fname { get; set; }
 
         public virtual Person Person { get; set; }
     }

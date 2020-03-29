@@ -605,5 +605,7 @@ D:\Customers\Customers\Customers\obj\Debug\netcoreapp3.1\Customers.genruntimecon
 D:\Customers\Customers\Customers\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
 D:\Customers\Customers\Customers\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 D:\Customers\Customers\Customers\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+D:\Customers\Customers\Customers\bin\Debug\netcoreapp3.1\System.Net.Http.Formatting.dll
+D:\Customers\Customers\Customers\bin\Debug\netcoreapp3.1\System.Web.Http.dll
 D:\Customers\Customers\Customers\obj\Debug\netcoreapp3.1\Customers.csproj.CoreCompileInputs.cache
 D:\Customers\Customers\Customers\obj\Debug\netcoreapp3.1\Customers.MvcApplicationPartsAssemblyInfo.cache
