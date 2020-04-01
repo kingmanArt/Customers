@@ -39,7 +39,7 @@ namespace Customers.DAL.Entities
         public string GrTxt3 { get; set; }
         public string GrTxt4 { get; set; }
 
-
+        public string Txt { get; set; }
         public virtual Country CountryCodeNavigation { get; set; }
         public virtual Greeting Greeting { get; set; }
         public virtual ICollection<PersonContact> PersonContact { get; set; }

@@ -23,15 +23,8 @@ namespace Customers.Controllers
 
         // GET: api/Person
         [HttpGet]
-        //public async Task<ActionResult<IEnumerable<Person>>> GetPerson()
-        //{
-
-        //    return await _context.Person
-        //                               .Include(per => per.PersonContact)
-        //                               .To();
-           
-        //}
-        public IEnumerable<PersonsInfo> GetPerson()
+       
+        public IEnumerable<PersonsInfo> GetPersons()
         {
             return _context.Person.Include(b => b.Greeting)
                                   .Include(b => b.PersonContact)
@@ -62,45 +55,47 @@ namespace Customers.Controllers
 
            
 
+           
+
 
        }).AsEnumerable();
 
-            //_context.Person/*.Include(x => x.PersonContact)*/.AsEnumerable();
         }
-       // GET: api/Person/5
-       [HttpGet("{id}")]
-        [ResponseType(typeof(PersonContact))]
-        public async Task<ActionResult<Person>> GetPerson(int id)
+       [HttpGet("{SearchData}")]
+        public IEnumerable<PersonsInfo> GetPerson(string SearchData)
         {
-            //var person = _context.Person
-            //                            .Include(per => per.Greeting)
-            //                            .Include(per => per.PersonContact)
-            //                            .Include(per => per.CountryCodeNavigation)
-            //                            .Where(per => per.Id == id)
-            //                            .FirstOrDefault();
 
-            //if (person == null)
-            //{
-            //    return NotFound();
-            //}
-
-            //return person;
-
-            var person = await _context.Person.Include(b => b.Greeting).Select(b =>
+            return  _context.Person.Where(b => b.Fname == SearchData || b.Lname == SearchData || b.Cpny == SearchData || b.City == SearchData)
+                                        .Include(b => b.Greeting)
+                                        .Include(b => b.PersonContact)
+                                        .Include(b => b.CountryCodeNavigation)
+                                        .Select(b =>
         new PersonsInfo()
         {
-            PersonId = b.Id,
+            Id = b.Id,
             Fname = b.Fname,
-            
-           
-            
-        }).SingleOrDefaultAsync(b => b.PersonId == id);
-            if (person == null)
-            {
-                return NotFound();
-            }
+            Lname = b.Lname,
+            Cpny = b.Cpny,
+            Street = b.Street,
+            Zip = b.Zip,
+            City = b.City,
+            DateOfBirth = b.DateOfBirth,
+            FirstContact = b.FirstContact,
+            Title = b.Title,
 
-            return Ok(person);
+            GrTxt1 = b.Greeting.Txt1,
+            GrTxt2 = b.Greeting.Txt2,
+            GrTxt3 = b.Greeting.Txt3,
+            GrTxt4 = b.Greeting.Txt4,
+
+            ConTxt1 = b.CountryCodeNavigation.Txt1,
+            ConTxt2 = b.CountryCodeNavigation.Txt2,
+            ConTxt3 = b.CountryCodeNavigation.Txt3,
+            ConTxt4 = b.CountryCodeNavigation.Txt4,
+
+            
+
+        }).AsEnumerable();
         
     }
 
@@ -136,16 +131,22 @@ namespace Customers.Controllers
             return NoContent();
         }
 
+
+        
         // POST: api/Person
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost]
-        public async Task<ActionResult<Person>> PostPerson(Person person)
+        public async Task<Person> PostPerson(Person person)
         {
-            _context.Person.Add(person);
-            await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetPerson", new { id = person.Id }, person);
+            //return  _context.Person.Add(person);
+            //await _context.SaveChangesAsync();
+            var res = await _context.Person.AddAsync(person);
+
+            await _context.SaveChangesAsync();
+            return res.Entity;
+
         }
 
         // DELETE: api/Person/5
