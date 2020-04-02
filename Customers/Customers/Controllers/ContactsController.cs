@@ -82,6 +82,7 @@ namespace Customers.Controllers
             _context.PersonContact.Add(personContact);
             try
             {
+
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateException)

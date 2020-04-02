@@ -23,10 +23,9 @@ namespace Customers.Controllers
 
         // GET: api/Person
         [HttpGet]
-       
-        public IEnumerable<PersonsInfo> GetPersons()
+        public async Task<ActionResult<IEnumerable<PersonsInfo>>> GetPersonContact()
         {
-            return _context.Person.Include(b => b.Greeting)
+            return await _context.Person.Include(b => b.Greeting)
                                   .Include(b => b.PersonContact)
                                   .Include(b => b.CountryCodeNavigation)
                                     .Select(b =>
@@ -58,11 +57,11 @@ namespace Customers.Controllers
            
 
 
-       }).AsEnumerable();
+       }).ToListAsync();
 
         }
        [HttpGet("{SearchData}")]
-        public IEnumerable<PersonsInfo> GetPerson(string SearchData)
+        public  IEnumerable<PersonsInfo> GetPerson(string SearchData)
         {
 
             return  _context.Person.Where(b => b.Fname == SearchData || b.Lname == SearchData || b.Cpny == SearchData || b.City == SearchData)
@@ -164,7 +163,16 @@ namespace Customers.Controllers
 
             return person;
         }
+      //  [HttpGet("{IdInfo}")]
+      //  public IEnumerable<PersonsInfo> IdInfo()
+      //  {
+      //      return _context.Person.Select(b =>
+      //new PersonsInfo()
+      // {
+      //     Id = b.Id,
+      // }).AsEnumerable();
 
+      //  }
         private bool PersonExists(int id)
         {
             return _context.Person.Any(e => e.Id == id);
