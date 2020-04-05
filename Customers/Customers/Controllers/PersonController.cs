@@ -51,20 +51,19 @@ namespace Customers.Controllers
            ConTxt2 = b.CountryCodeNavigation.Txt2,
            ConTxt3 = b.CountryCodeNavigation.Txt3,
            ConTxt4 = b.CountryCodeNavigation.Txt4,
+           CountryCode = b.CountryCode,
 
-           
-
-           
-
+           PersonContacts = b.PersonContact
 
        }).ToListAsync();
 
         }
-       [HttpGet("{SearchData}")]
+
+        [HttpGet("{SearchData}")]
         public  IEnumerable<PersonsInfo> GetPerson(string SearchData)
         {
 
-            return  _context.Person.Where(b => b.Fname == SearchData || b.Lname == SearchData || b.Cpny == SearchData || b.City == SearchData)
+            return _context.Person.Where(b => b.Fname == SearchData || b.Lname == SearchData || b.Cpny == SearchData || b.City == SearchData)
                                         .Include(b => b.Greeting)
                                         .Include(b => b.PersonContact)
                                         .Include(b => b.CountryCodeNavigation)
@@ -92,6 +91,8 @@ namespace Customers.Controllers
             ConTxt3 = b.CountryCodeNavigation.Txt3,
             ConTxt4 = b.CountryCodeNavigation.Txt4,
 
+            PersonContacts = b.PersonContact,
+            CountryCodeNavigation = b.CountryCodeNavigation
             
 
         }).AsEnumerable();
@@ -101,37 +102,20 @@ namespace Customers.Controllers
         // PUT: api/Person/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutPerson(int id, Person person)
+        [HttpPut]
+        public async Task<Person> Update([FromBody]Person person)
         {
-            if (id != person.Id)
-            {
-                return BadRequest();
-            }
+            var res = _context.Person.Update(person);
 
-            _context.Entry(person).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!PersonExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
+            return res.Entity;
         }
 
 
-        
+
+
+
         // POST: api/Person
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
@@ -163,16 +147,7 @@ namespace Customers.Controllers
 
             return person;
         }
-      //  [HttpGet("{IdInfo}")]
-      //  public IEnumerable<PersonsInfo> IdInfo()
-      //  {
-      //      return _context.Person.Select(b =>
-      //new PersonsInfo()
-      // {
-      //     Id = b.Id,
-      // }).AsEnumerable();
-
-      //  }
+       
         private bool PersonExists(int id)
         {
             return _context.Person.Any(e => e.Id == id);

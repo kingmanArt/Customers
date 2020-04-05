@@ -40,9 +40,11 @@ namespace Customers.DAL.Entities
         public string GrTxt4 { get; set; }
 
         public string Txt { get; set; }
+        public string GetCode { get; set; }
+
         public virtual Country CountryCodeNavigation { get; set; }
         public virtual Greeting Greeting { get; set; }
-        public virtual ICollection<PersonContact> PersonContact { get; set; }
+        public ICollection<PersonContact> PersonContacts { get; set; }
         public virtual ICollection<Person> Person { get; set; }
     }
 }

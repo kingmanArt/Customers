@@ -31,7 +31,7 @@ namespace Customers.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<PersonContact>> GetPersonContact(int id)
         {
-            var personContact = await _context.PersonContact.FindAsync(id);
+            var personContact = await _context.PersonContact.FirstOrDefaultAsync(x => x.PersonId == id);
 
             if (personContact == null)
             {
@@ -77,43 +77,32 @@ namespace Customers.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost]
-        public async Task<ActionResult<PersonContact>> PostPersonContact(PersonContact personContact)
+        public async Task<PersonContact> PostPerson(PersonContact personContact)
         {
-            _context.PersonContact.Add(personContact);
-            try
-            {
+            var res = await _context.PersonContact.AddAsync(personContact);
 
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateException)
-            {
-                if (PersonContactExists(personContact.PersonId))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            await _context.SaveChangesAsync();
+            return res.Entity;
 
-            return CreatedAtAction("GetPersonContact", new { id = personContact.PersonId }, personContact);
         }
 
+        
+
         // DELETE: api/Contacts/5
-        [HttpDelete("{id}")]
-        public async Task<ActionResult<PersonContact>> DeletePersonContact(int id)
+        [HttpDelete("{per}")]
+        public async Task<ActionResult<PersonContact>> DeletePersonContact(PersonContact per)
         {
-            var personContact = await _context.PersonContact.FindAsync(id);
-            if (personContact == null)
+            
+           
+            if (per == null)
             {
                 return NotFound();
             }
 
-            _context.PersonContact.Remove(personContact);
+            _context.PersonContact.Remove(per);
             await _context.SaveChangesAsync();
 
-            return personContact;
+            return per;
         }
 
         private bool PersonContactExists(int id)
